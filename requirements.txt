@@ -4,5 +4,5 @@ wikipedia
 fire
 pytest
 pytest-cov
-
+pylint
 black
