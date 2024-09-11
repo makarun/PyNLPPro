@@ -2,6 +2,7 @@ install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
 	python -m textblob.download_corpora
+	python -m nltk.downloader all
 
 test:
 	python -m pytest -vv --cov=wikiphrases --cov=nlplogic test_corenlp.py
