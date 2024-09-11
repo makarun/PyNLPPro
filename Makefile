@@ -2,12 +2,12 @@ install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
 	python -m textblob.download_corpora
-	python -m nltk.downloader all
+
 test:
-	python -m pytest -vv test_main.py
+	python -m pytest -vv --cov=wikiphrases --cov=nlplogic test_corenlp.py
 
 format:
-	black *.py
+	black *.py nlplogic
 
 run:
 	python main.py
@@ -19,6 +19,6 @@ killweb:
 	sudo killall uvicorn
 
 lint:
-	pylint --disable=R,C *.py
+	pylint --disable=R,C *.py nlplogic/*.py
 
 all: install lint test run
